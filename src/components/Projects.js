@@ -45,8 +45,8 @@ export default function Projects() {
 
                             </div>
                             <div className='flex inline-flex justify-center'>
-                                <a href={project.deployLink} className='flex inline-flex px-5 pb-10 relative w-50 h-50 bg-gray-900 opacity-100'><Deploy /></a>
-                                <a href={project.githubLink} className='flex inline-flex px-5 pb-10 relative w-auto bg-gray-900 opacity-100'><Github /></a>
+                                <a href={project.deployLink} target='_blank' rel='noreferrer noopener' className='flex inline-flex px-5 pb-10 relative w-50 h-50 bg-gray-900 opacity-100'><Deploy /></a>
+                                <a href={project.githubLink} target='_blank' rel='noreferrer noopener' className='flex inline-flex px-5 pb-10 relative w-auto bg-gray-900 opacity-100'><Github /></a>
                             </div>
                         </div>
                     ))}
