@@ -10,10 +10,13 @@ export default function Resume() {
           <h1 className="sm:text-4xl text-3xl font-medium title-font text-white mb-4">
             Skills &amp; Technologies
           </h1>
-          <button className="w-100inline-flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded"><a href={resume} className="lg:w-2/3 mx-auto leading-relaxed text-base text-white">
-            Download my resume.
+
+          <a href={resume} target="_blank" rel="noreferrer noopener" className="lg:w-2/3 mx-auto leading-relaxed text-base text-white" download>
+            <button className="w-100inline-flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded">
+              Download my resume.
+            </button>
           </a>
-          </button>
+
         </div>
         <div className="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
           {skills.map((skill) => (
