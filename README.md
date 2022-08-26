@@ -1,70 +1,148 @@
-# Getting Started with Create React App
+# react-portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+This app a project portfolio built with React.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* [Installation](#installation)
+* [Usage](#usage)
+* [Code Snippets](#code-snippets)
+* [Technology](#technology)
+* [References](#references)
+* [Credits](#credits)
+* [Testing](#testing)
+* [License](#license)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This app has been deployed to GitHub Pages.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Usage
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The user is presented with a nav bar with my name, as well as buttons for an 'about me' section, a 'projects' section, a 'resume' section, and a 'hire me (contact)' session. The buttons bring the user to the corresponding section.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+In the projects section, the user is presented with six .gif images of each presented app. If the user scrolls over the .gif, the user is presented with the project title, description, and a list of technologies used.
 
-### `npm run eject`
+Below each .gif are two buttons: a rocket button to take the user to the deployed app's page; and a GitHub button to take the user to the GitHub repository page.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+In the resume section, the user is presented with a button to download my resume, as well as a list of skills and technologies I've learned.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+In the contact section, the user is presented with a form for first name, last name, email address, and message.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Code Snippets
 
-## Learn More
+```javascript
+import { ReactComponent as Deploy } from './assets/deploy.svg'
+import { ReactComponent as Github } from './assets/github.svg'
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<div>
+    {projects.map((project, i) => (
+        <div>
+            <div
+                key={i}>
+                <div>
+                    <img
+                        alt="portfolio"
+                        src={project.image} />
+                    <div>
+                        <h2>
+                            {project.subtitle}
+                        </h2>
+                        <h1>
+                            {project.title}
+                        </h1>
+                        <p>{project.description}</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a href={project.deployLink} target='_blank' rel='noreferrer noopener'><Deploy /></a>
+                <a href={project.githubLink} target='_blank' rel='noreferrer noopener'><Github /></a>
+            </div>
+        </div>
+    ))}
+</div>
+```
+Two .svg files are imported as React components in the first two lines of this code block.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This JSX snippet (CSS styling removed for readability) takes the projects array imported from project-data.js and, for each project object in the array, renders the image, subtitle, title, and description to a card.
 
-### Code Splitting
+The two links at the bottom take the user to the project's deployed link and GitHub repository link. The links are wrapped around the .svg files imported as components. These links open in a new tab in the browser.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## Technology
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Technology Used:
+* [GitHub](https://github.com/)
+* [GitBash](https://gitforwindows.org/)
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [Javascipt](https://www.javascript.com/)
+* [node.js](https://nodejs.org/en/)
+* [React](https://reactjs.org/)
+* [Tailwind](https://tailwindcss.com/)
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## References
+* [logrocket.com - svgs in React](https://blog.logrocket.com/how-to-use-svgs-in-react/)
+* [GitHub svg icon](https://iconmonstr.com/github-5-svg/)
+* [Deploy Rocket svg icon](https://thenounproject.com/icon/deploy-2715487/)
+* [Tailwind Contact Form](https://tailwindcomponents.com/component/basic-contact-form)
+* [Tailwind CSS Docs](https://tailwindcss.com/docs/installation)
+* [FreeCodeCamp](https://www.freecodecamp.org/news/build-portfolio-website-react/)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## Credits
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+React Portfolio credited to Phillip Besse.
 
-### `npm run build` fails to minify
+Parts of the CSS and basic HTML layout credited to [freecodecamp](https://www.freecodecamp.org/news/build-portfolio-website-react/). Contact form credited to [Tailwind Components](https://tailwindcomponents.com/component/basic-contact-form).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## Testing
+
+There are no tests for this app.
+
+---
+
+## License
+
+Phillip Besse's React Portfolio is licensed under the [MIT License](https://choosealicense.com/licenses/mit/).
+
+MIT License
+
+Copyright (c) 2022 Phillip Besse
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
