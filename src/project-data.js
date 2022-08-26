@@ -12,10 +12,10 @@ export const projects = [
         title: "Social Network API",
         subtitle: "MongoDB and Express",
         description:
-            "A MongoDB-based backend for a social media app. Users can be created, retrieved, edited, and deleted. Thoughts can be posted.",
+            "A MongoDB-based backend for a social media app. Users can be created, retrieved, edited, and deleted. Thoughts can be posted. This has not yet been deployed.",
         image: "./assets/images/sna-usage.gif",
         //   deploy and add
-        deployLink: "https://google.com",
+        deployLink: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
         githubLink: "https://github.com/pdbesse/social-network-api"
     },
     {
