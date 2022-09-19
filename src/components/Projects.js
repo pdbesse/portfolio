@@ -22,10 +22,9 @@ export default function Projects() {
                     </p>
                 </div>
                 <div className="flex flex-wrap -m-4 justify-center">
-                    {projects.map((project, i) => (
-                        <div className='flex flex-col justify-center'>
+                    {projects.map((project) => (
+                        <div key={project.key} className='flex flex-col justify-center'>
                             <div
-                                key={i}
                                 className="w-full p-4">
                                 <div className="flex relative w-full h-full object-cover object-center">
                                     <img

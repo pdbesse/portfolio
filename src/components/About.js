@@ -10,10 +10,8 @@ export default function About() {
                     </h1>
                     <p className="lg:inline-block text-white text-lg">I'm a fullstack web developer.
                     </p>
-                    {/* <p className="lg:inline-block text-white text-lg">I live with my wife and two kids in Massachusetts.
-                    </p> */}
                 </div>
-                <img alt='portrat' src='./assets/images/self.jpg' class=''></img>
+                <img alt='portrait' src='./assets/images/self.jpg'></img>
             </div>
         </section>
     );
