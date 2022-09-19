@@ -5,7 +5,7 @@ export const projects = [
         subtitle: "MongoDB, Apollo, GraphQL, React, PubNub, Particles.js, Splide, Cloudinary API",
         description:
             "Dating app tailored for software engineers. Users can make accounts, swipe right or left on other users, and private message.",
-        image: "/public/assets/images/developer-usage.gif",
+        image: "./assets/images/developer-usage.gif",
         deployLink: "https://dev-eloper.herokuapp.com/",
         githubLink: "https://github.com/pdbesse/devELOPEr"
     },
@@ -25,7 +25,7 @@ export const projects = [
         subtitle: "MongoDB and Express",
         description:
             "A MongoDB-based backend for a social media app. Users can be created, retrieved, edited, and deleted. Thoughts can be posted. This has not yet been deployed.",
-        image: "../public/assets/images/sna-usage.gif",
+        image: "./assets/images/sna-usage.gif",
         deployLink: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
         githubLink: "https://github.com/pdbesse/social-network-api"
     },
