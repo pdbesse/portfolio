@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { validateEmail } from '../utils/helpers'
+import { validateEmail } from '../../utils/helpers'
 import emailjs, { init } from 'emailjs-com';
 import { Form } from "react-bootstrap";
 init('REACET_APP_EMAILJS_USER_ID');

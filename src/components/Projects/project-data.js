@@ -60,28 +60,3 @@ export const projects = [
         githubLink: "https://github.com/pdbesse/Weather-Dashboard"
     },
 ];
-
-export const skills = [
-    'HTML',
-    'CSS',
-    'JavaScript',
-    'jQuery',
-    'Responsive Design',
-    'React',
-    'Bootstrap',
-    'Tailwind',
-    'Handlebars',
-    'Progressive Web Applications (PWAs)',
-    'APIs',
-    'Node',
-    'Express',
-    'MySQL', 
-    'Sequelize',
-    'noSQL',
-    'MongoDB', 
-    'Mongoose',
-    'REST',
-    'Webpack',
-    'Socket.io',
-    'MERN Stack'
-]
