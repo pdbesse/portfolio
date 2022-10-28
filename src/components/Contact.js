@@ -1,99 +1,116 @@
 import React, { useState } from 'react';
 import { validateEmail } from '../utils/helpers'
+import emailjs, { init } from 'emailjs-com';
+import { Form } from "react-bootstrap";
+init('REACET_APP_EMAILJS_USER_ID');
 
-export default function ContactForm() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  // const [errorMessage, setErrorMessage] = useState('');
+const ContactForm = ({ setAlertContent, setShowAlert }) => {
 
-  const handleInputChange = (e) => {
-    const { target } = e;
-    const inputType = target.name;
-    const inputValue = target.value;
+  const [formData, setFormData] = useState({ email: '', firstName: '', lastName: '', subject: '', message: '' });
 
-    if (inputType === 'email') {
-      setEmail(inputValue);
-    } else if (inputType === 'firstName') {
-      setFirstName(inputValue);
-    } else if (inputType === 'lastName') {
-      setLastName(inputValue);
-    } else {
-      setMessage(inputValue);
-    }
-  };
+  const handleChange = (e) => setFormData({ ...formData, [e.target.id]: e.target.value })
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    if (!validateEmail(email)) {
+    if (!validateEmail(formData.email)) {
       alert('Email is invalid');
       return;
     }
 
-    alert(`Thank you for your interest. I will be in contact soon.`);
-
-    setFirstName('');
-    setLastName('');
-    setEmail('');
+    emailjs.send(
+      process.env.REACT_APP_EMAILJS_SERVICE_ID,
+      process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+      formData, process.env.REACT_APP_EMAILJS_USER_ID
+    )
+      .then((result) => {
+        setFormData({
+          email: '',
+          firstName: '',
+          lastName: '',
+          subject: '',
+          message: ''
+        })
+        setAlertContent({
+          heading: "Thank you for contacting me.",
+          message: "I will respond to your message as soon as I can."
+        })
+        setShowAlert(true)
+      }, (error) => {
+        setAlertContent({
+          heading: "Something went wrong.",
+          message: error.text
+        })
+        setShowAlert(true)
+      });
   };
 
   return (
     <div className='flex justify-center bg-gray-900' id='contact'>
-      <form className="w-full max-w-lg">
-        <p className="flex justify-center mt-6 sm:text-4xl text-3xl font-medium title-font mb-4 text-white">Contact Me</p>
+      <Form className="w-full max-w-lg">
+        <h3 className="flex justify-center mt-6 sm:text-4xl text-3xl font-medium title-font mb-4 text-white">Contact Me</h3>
         <div className="flex flex-wrap -mx-3 mb-1">
-          <div className="w-full md:w-1/2 px-3 mb-1 md:mb-0">
-            <label className="block uppercase tracking-wide text-gray-300 text-xs font-bold mb-2" id="grid-first-name">
+          <Form.Group className="w-full md:w-1/2 px-3 mb-1 md:mb-0" controlId="firstName">
+            <Form.Label className="block uppercase tracking-wide text-gray-300 text-xs font-bold mb-2" id="form-first-name">
               First Name
-            </label>
-            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-              value={firstName}
-              name="firstName"
-              onChange={handleInputChange}
+            </Form.Label>
+            <Form.Control className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               type="text"
-              placeholder="First Name" />
-          </div>
-          <div className="w-full md:w-1/2 px-3">
-            <label className="block uppercase tracking-wide text-gray-300 text-xs font-bold mb-2" id="grid-last-name">
+              placeholder="First Name"
+              value={formData.firstName}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          <Form.Group className="w-full md:w-1/2 px-3 mb-1 md:mb-0" controlId="lastName">
+            <Form.Label className="block uppercase tracking-wide text-gray-300 text-xs font-bold mb-2" id="form-last-name">
               Last Name
-            </label>
-            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              value={lastName}
-              name="lastName"
-              onChange={handleInputChange}
+            </Form.Label>
+            <Form.Control className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               type="text"
               placeholder="Last Name"
+              value={formData.lastName}
+              onChange={handleChange}
             />
-          </div>
+          </Form.Group>
         </div>
         <div className="flex flex-wrap -mx-3 mb-1">
-          <div className="w-full px-3">
-            <label className="block uppercase tracking-wide text-gray-300 text-xs font-bold mb-2" id="grid-password">
+          <Form.Group className="w-full px-3" controlId="email">
+            <Form.Label className="block uppercase tracking-wide text-gray-300 text-xs font-bold mb-2" id="form-email">
               E-mail
-            </label>
-            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              value={email}
-              name="email"
-              onChange={handleInputChange}
+            </Form.Label>
+            <Form.Control className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               type="email"
-              placeholder="Email"
+              placeholder="name@example.com"
+              onChange={handleChange}
+              value={formData.email}
             />
-          </div>
+          </Form.Group>
+        </div>
+        <div className="flex flex-wrap -mx-3 mb-1">
+          <Form.Group className="w-full px-3" controlId="subject">
+            <Form.Label className="block uppercase tracking-wide text-gray-300 text-xs font-bold mb-2" id="form-subject">
+              Subject
+            </Form.Label>
+            <Form.Control className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              type="text"
+              placeholder="name@example.com"
+              onChange={handleChange}
+              value={formData.subject}
+            />
+          </Form.Group>
         </div>
         <div className="flex flex-wrap -mx-3 mb-6">
-          <div className="w-full px-3">
-            <label className="block uppercase tracking-wide text-gray-300 text-xs font-bold mb-2" id="grid-password">
+          <Form.Group className="w-full px-3" controlId="message">
+            <Form.Label className="block uppercase tracking-wide text-gray-300 text-xs font-bold mb-2" id="form-message">
               Message
-            </label>
-            <input className=" no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none" value={message}
-              name="message"
-              onChange={handleInputChange}
-              type="message"
-              placeholder="Enter a message"
+            </Form.Label>
+            <Form.Control className=" no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none"
+              as="textarea"
+              placeholder="Enter a message."
+              onChange={handleChange}
+              value={formData.message}
             />
-          </div>
+          </Form.Group>
         </div>
         <div className="flex md:flex md:items-center justify-center">
           <div className="flex justify-center md:w-1/3 ">
@@ -102,12 +119,9 @@ export default function ContactForm() {
             </button>
           </div>
         </div>
-      </form>
-      {/* {errorMessage && (
-        <div>
-          <p className="error-text">{errorMessage}</p>
-        </div>
-      )} */}
+      </Form>
     </div>
   );
 };
+
+export default ContactForm;
