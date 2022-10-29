@@ -35,7 +35,7 @@ Below each .gif are two buttons: a rocket button to take the user to the deploye
 
 In the resume section, the user is presented with a button to download my resume, as well as a list of skills and technologies I've learned.
 
-In the contact section, the user is presented with a form for first name, last name, email address, and message.
+In the contact section, the user is presented with a form for first name, last name, email address, subject, and message.
 
 ---
 
