@@ -31,23 +31,23 @@ const ContactForm = ({ setAlertContent, setShowAlert }) => {
           subject: '',
           message: ''
         })
-        // alert({
-        //   message: "Thank you for contacting me. I will be in touch."
+        alert(
+          "Thank you for contacting me. I will be in touch."
+        )
+        // setAlertContent({
+        //   heading: "Thank you for contacting me.",
+        //   message: "I will respond to your message as soon as I can."
         // })
-        setAlertContent({
-          heading: "Thank you for contacting me.",
-          message: "I will respond to your message as soon as I can."
-        })
-        setShowAlert(true)
+        // setShowAlert(true)
       }, (error) => {
-        setAlertContent({
-          heading: "Something went wrong.",
-          message: error.text
-        })
-        setShowAlert(true)
-        // alert({
-        //   message: "Something went wrong."
+        // setAlertContent({
+        //   heading: "Something went wrong.",
+        //   message: error.text
         // })
+        // setShowAlert(true)
+        alert(
+          "Something went wrong."
+        )
       });
     setFormData({
       email: '',
