@@ -31,18 +31,31 @@ const ContactForm = ({ setAlertContent, setShowAlert }) => {
           subject: '',
           message: ''
         })
-        setAlertContent({
-          heading: "Thank you for contacting me.",
-          message: "I will respond to your message as soon as I can."
+        alert({
+          message: "Thank you for contacting me. I will be in touch."
         })
-        setShowAlert(true)
+        // setAlertContent({
+        //   heading: "Thank you for contacting me.",
+        //   message: "I will respond to your message as soon as I can."
+        // })
+        // setShowAlert(true)
       }, (error) => {
-        setAlertContent({
-          heading: "Something went wrong.",
-          message: error.text
+        // setAlertContent({
+        //   heading: "Something went wrong.",
+        //   message: error.text
+        // })
+        // setShowAlert(true)
+        alert({
+          message: "Something went wrong."
         })
-        setShowAlert(true)
       });
+    setFormData({
+      email: '',
+      firstName: '',
+      lastName: '',
+      subject: '',
+      message: ''
+    });
   };
 
   return (
