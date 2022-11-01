@@ -1,14 +1,6 @@
 export const skills = [
-    'HTML',
-    'CSS',
-    'JavaScript',
-    'jQuery',
-    'Responsive Design',
     'React',
-    'Bootstrap',
-    'Tailwind',
-    'Handlebars',
-    'Progressive Web Applications (PWAs)',
+    'MERN Stack',
     'APIs',
     'Node',
     'Express',
@@ -18,7 +10,15 @@ export const skills = [
     'MongoDB', 
     'Mongoose',
     'REST',
+    'JavaScript',
+    'jQuery',
+    'HTML',
+    'CSS',
+    'Responsive Design',
+    'Bootstrap',
+    'Tailwind',
+    'Handlebars',
+    'Progressive Web Applications (PWAs)',
     'Webpack',
-    'Socket.io',
-    'MERN Stack'
+    'Socket.io'
 ]
