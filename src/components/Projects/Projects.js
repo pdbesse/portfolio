@@ -1,7 +1,7 @@
 import React from "react";
 import { projects } from "./project-data";
-import { ReactComponent as Deploy } from '../assets/deploy.svg'
-import { ReactComponent as Github } from '../assets/github.svg'
+import { ReactComponent as Deploy } from '../Assets/deploy.svg'
+import { ReactComponent as Github } from '../Assets/github.svg'
 
 export default function Projects() {
     return (

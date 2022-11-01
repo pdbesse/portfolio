@@ -1,7 +1,7 @@
 import React from "react";
-import { ReactComponent as Github } from '../assets/github.svg'
-import { ReactComponent as LinkedIn } from '../assets/linkedin.svg'
-import { ReactComponent as Medium } from '../assets/medium.svg'
+import { ReactComponent as Github } from '../Assets/github.svg'
+import { ReactComponent as LinkedIn } from '../Assets/linkedin.svg'
+import { ReactComponent as Medium } from '../Assets/medium.svg'
 
 export default function Footer() {
     return (

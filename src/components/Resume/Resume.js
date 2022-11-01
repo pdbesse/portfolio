@@ -1,6 +1,6 @@
 import React from "react";
 import { skills } from "./skills-data";
-import resume from '../assets/Phillip-Besse-Resume.pdf';
+import resume from '../Assets/phillip-besse-resume.pdf';
 
 export default function Resume() {
   return (
